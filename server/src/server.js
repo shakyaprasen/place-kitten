@@ -11,8 +11,6 @@ app.use('/images',express.static('storage/images'));
 
 dotenv.config();
 
-console.log(process.env.PORT);
-
 const port = process.env.PORT || 8080;
 
 app.get('/api/images', (req, res) => {
