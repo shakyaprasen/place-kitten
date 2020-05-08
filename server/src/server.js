@@ -1,9 +1,13 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import fs from 'fs';
+import Path from 'path';
 
 const app = express();
-app.use(cors())
+app.use(cors());
+app.use(express.static('public'));
+app.use('/images',express.static('storage/images'));
 
 dotenv.config();
 
@@ -11,12 +15,23 @@ console.log(process.env.PORT);
 
 const port = process.env.PORT || 5000;
 
-app.get('/test', (req, res) => {
-  res.json({
-    data: {
-      message: 'success'
+app.get('/api/images', (req, res) => {
+
+  const storageDir = Path.resolve(__dirname, '../storage/images');
+
+  fs.readdir(storageDir, (err, files) => {
+    if (err) {
+      console.error(err);
+      res.status(400);
+    } else {
+      res.json({
+        data: {
+          files: files
+        }
+      });
     }
   });
+
 });
 
 // create a GET route
