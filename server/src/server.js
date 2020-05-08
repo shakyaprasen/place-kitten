@@ -1,9 +1,10 @@
-const express = require('express');
-var cors = require('cors')
+import express from 'express';
+import cors from 'cors';
+
 const app = express();
 app.use(cors())
 
-const port = 80;
+const port = process.env.PORT || 5000;
 
 app.get('/test', (req, res) => {
   res.json({

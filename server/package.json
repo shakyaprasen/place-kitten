@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --exec babel-node src/server.js",
     "build": "babel ./src --out-dir build && node ./build/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "downloadImage": "babel-node ./scripts/downloadImage.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "nodemon": "^2.0.3"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "cors": "^2.8.5",
     "express": "^4.17.1"
   }
