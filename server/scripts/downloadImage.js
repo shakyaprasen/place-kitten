@@ -4,7 +4,9 @@ import axios from 'axios';
 
 
   (() => {
-    const url = 'http://placekitten.com/g/200/300';
+    const randomWidth = Math.floor(Math.random() * (500-300 + 1 ) + 300);
+    const randomHeight = Math.floor(Math.random() * (500-300 + 1 ) + 300);
+    const url = `http://placekitten.com/g/${randomWidth}/${randomHeight}`;
     const storageDir = '../storage';
     const saveDirectory = `${storageDir}/images`;
     const jsonSaveDirectory = `${storageDir}/data`;

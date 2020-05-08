@@ -13,7 +13,7 @@ dotenv.config();
 
 console.log(process.env.PORT);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 app.get('/api/images', (req, res) => {
 
