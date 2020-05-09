@@ -8,7 +8,8 @@
     "build": "babel ./src --out-dir build && node ./build/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "downloadImage": "babel-node ./scripts/downloadImage.js",
-    "rsyncImages": "./scripts/rsync-to-bucket.sh"
+    "rsyncImages": "./scripts/rsync-to-bucket.sh",
+    "cleanOld": "babel-node ./scripts/cleanOldData.js"
   },
   "keywords": [],
   "author": "",
