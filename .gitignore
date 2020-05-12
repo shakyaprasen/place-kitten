@@ -5,3 +5,4 @@ public/
 build/
 storage/
 .env
+rsync-to-bucket.local.sh
