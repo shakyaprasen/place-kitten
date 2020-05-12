@@ -22,7 +22,7 @@ import axios from 'axios';
     async function downloadImage () {  
 
       const currentTime = Date.now();
-      const fileName = `${currentTime}-kitten.png`;
+      const fileName = `${currentTime}-kitten.jpg`;
 
       const path = Path.resolve(__dirname, saveDirectory, fileName);
       const writer = fs.createWriteStream(path);
