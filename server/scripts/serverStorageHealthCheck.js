@@ -28,10 +28,12 @@ dotenv.config();
       
       const msg = {
         to: 'kajiprasen@gmail.com',
-        from: 'kajiprasen@gmail.com',
+        from: 'punit@reduct.video',
         subject: 'HealthCheck notification for server storage',
         html: `<strong>Following files were created before ${hrsAllowed}hrs but not deleted</strong>
-          ${olderFiles}
+        <ol>
+          ${olderFiles.map(file => `<li>${file}<li>`)}
+        <ol>
         `,
       };
 

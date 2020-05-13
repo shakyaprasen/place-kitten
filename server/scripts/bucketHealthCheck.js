@@ -8,7 +8,7 @@ dotenv.config();
   const bucketName = 'gs://place-kitten-bucket/';
   const [files] = await storage.bucket(bucketName).getFiles();
 
-  const hrsAllowed = 5;
+  const hrsAllowed = 24;
   const msToHr = 60*60*1000;
   const timeAllowedInMs = hrsAllowed * msToHr;
 
@@ -25,16 +25,17 @@ dotenv.config();
             olderFiles.push(metadata.name);
           }
         });
-        console.log(olderFiles);
         if (olderFiles.length) {
           sgMail.setApiKey(process.env.SENDGRID_API_KEY);
           
           const msg = {
             to: 'kajiprasen@gmail.com',
-            from: 'kajiprasen@gmail.com',
+            from: 'punit@reduct.video',
             subject: 'HealthCheck notification for google-bucket',
             html: `<strong>Following files were created in the google-bucket ${bucketName} before ${hrsAllowed}hrs but not deleted</strong>
-              ${olderFiles}
+            <ol>
+              ${olderFiles.map(file => `<li>${file}<li>`)}
+            <ol>
             `,
           };
     
