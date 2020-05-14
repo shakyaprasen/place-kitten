@@ -27,7 +27,7 @@ dotenv.config();
           }
         });
         if (olderFiles.length) {
-          const response = axios.post(process.env.WEBHOOK_SITE, { files: olderFiles });
+          const response = axios.post(process.env.WEBHOOK_SITE, { type: 'bucket-health-check', files: olderFiles });
           // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
           
           // const msg = {
